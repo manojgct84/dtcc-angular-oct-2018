@@ -67,6 +67,23 @@ ng g directive shared/directives/highlight
 
 ```
 
+# Cart Module
+
+```
+ng g module cart
+
+ng g component cart/components/cart
+ng g component cart/components/cart-list
+ng g component cart/components/cart-summary
+ng g component cart/components/checkout
+
+ng g class cart/models/cart-item
+ng g service cart/services/cart
+
+
+
+```
+
 # ProductApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.6.

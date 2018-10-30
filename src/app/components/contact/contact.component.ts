@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+  highlightColor = 'yellow';
+
   // address is undefined
   address: Address;
 

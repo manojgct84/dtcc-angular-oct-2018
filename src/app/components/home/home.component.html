@@ -1,0 +1,101 @@
+<div>
+  <!--
+    {{ expr }} - interpolation, convert the result to string
+
+    (click)="expr"   -- event binding
+
+    propName="Fixed"
+
+    [propName]="expr" --  [] Property Binding
+
+    | -- PIPE, formatter, transform data in view
+
+    *ngIf -- Structrual directive * Add/remove DOM element
+
+    ngClass -- attribute directive (modify attribute values)
+
+  -->
+
+  <h2>{{title}}</h2>
+
+  <p>Power Pipe 2^counter = {{2 | power:counter}} </p>
+  <p>Power Pipe counter^2 = {{counter | power:2}} </p>
+  <p>Power Pipe default 5^1 = {{5 | power}} </p>
+  
+
+  <p>Counter {{counter}}</p>
+
+  <p>Counter + 2 = {{counter + 2}}</p>
+
+<div (click)="divClicked()">
+    <p>click button</p>
+    <button (click)="increment($event)">
+      +1
+    </button>
+</div>
+
+<button (click)="counter = counter - 1">
+  -1
+</button>
+
+<p>Property Binding</p>
+
+<!-- fixed value -->
+<input value="Hi" />
+<br />
+<input [value]="counter" />
+
+<br /> counter * 2
+<input [value]="counter * 2"
+       (focus)="counter = counter + 10"  
+/>
+
+<button [disabled]="counter % 2 == 1">
+  Disabled {{counter % 2}}
+</button>
+
+<p>Title = {{title}}</p>
+
+<p>title = {{title | lowercase}}</p>
+
+<p>TITLE = {{title | uppercase}}</p>
+
+<p> Price = {{price}} </p>
+
+<p> Price USD = {{price | currency}} </p>
+<p> Price INR = {{price | currency:"INR"}} </p>
+<p> Price EURO = {{price | currency:"EUR"}} </p>
+
+<p>Counter / 3 =  {{counter / 3}}</p>
+
+<p>Counter / 3 with 4 digit =  {{counter / 3 | number:".4" }}</p>
+
+
+<p>Date = {{today}}</p>
+
+<p>Date | date = {{today | date }}</p>
+
+<p>Date | date:'fullDate' = {{today | date:'fullDate' }}</p>
+<p>Date | date:'fullDate' | uppercase = {{today | date:'fullDate' | uppercase }}</p>
+
+
+<p *ngIf="counter % 2 == 0">
+  Counter value is {{counter}}
+</p>
+
+<div [ngClass]="{highlight: hl, hasBorder: true}"
+     (mouseenter)="hl = true"
+     (mouseleave)="hl = false"
+>
+  Mouse is on
+</div>
+
+<p> W3C specific complaince</p>
+
+<button on-click="increment($event)">
+  Incr btn
+</button>
+
+<input bind-value="counter + 2" />
+
+</div>

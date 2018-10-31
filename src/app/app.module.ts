@@ -1,3 +1,4 @@
+import { ProductModule } from './product/product.module';
 import { CartModule } from './cart/cart.module';
 import { AppComponent } from './app.component';
 // collection of components, directives, pipes and services
@@ -15,6 +16,12 @@ import { SharedModule } from './shared/shared.module';
 
 // step 1: route, configuration, map url to component
 import {RouterModule, Routes} from '@angular/router';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
+// ng 4.3 onwards, interceptors etc
+import {HttpClientModule} from '@angular/common/http';
+
+
 
 const routes: Routes = [
     {
@@ -28,6 +35,11 @@ const routes: Routes = [
     {
         path: 'about',
         component: AboutComponent
+    },
+
+    {
+        path: '**', //not found
+        component: NotFoundComponent
     }
 ];
 
@@ -38,6 +50,9 @@ const routes: Routes = [
         BrowserModule,
         SharedModule,
         CartModule,
+
+        ProductModule,
+        HttpClientModule,
 
         // step 2: routing, initialize routes with Angular imports
         RouterModule.forRoot(routes)
@@ -55,6 +70,7 @@ const routes: Routes = [
         HomeComponent,
         AboutComponent,
         ContactComponent,
+        NotFoundComponent,
         // Header, Footer, etc
     ],
 

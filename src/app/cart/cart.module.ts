@@ -6,10 +6,27 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { SharedModule } from '../shared/shared.module';
 
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: 'cart',
+    component: CartComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent
+  }
+];
+
+
+
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+
+    RouterModule.forChild(routes)
   ],
   declarations: [
           CartComponent,
@@ -18,7 +35,7 @@ import { SharedModule } from '../shared/shared.module';
           CheckoutComponent],
 
   exports: [
-    CartComponent
+   // CartComponent
   ]
 })
 export class CartModule { }

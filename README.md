@@ -20,6 +20,21 @@ ng g component components/footer
 ng g component components/home
 ng g component components/about
 ng g component components/contact
+
+ng g component components/not-found
+```
+
+# Product Module
+
+```
+ng g module product
+ng g component product/components/product-home
+ng g component product/components/product-list
+ng g component product/components/product-edit
+ng g component product/components/product-search
+ng g service product/services/product
+ng g class product/models/product
+ng g class product/models/brand
 ```
 
 # Application Architecture

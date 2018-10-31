@@ -13,12 +13,35 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SharedModule } from './shared/shared.module';
 
+// step 1: route, configuration, map url to component
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+    {
+        path: '',
+        component: HomeComponent
+    },
+    {
+        path: 'contact',
+        component: ContactComponent
+    },
+    {
+        path: 'about',
+        component: AboutComponent
+    }
+];
+
+
 @NgModule({
     imports: [
         // reference to other module
         BrowserModule,
         SharedModule,
-        CartModule
+        CartModule,
+
+        // step 2: routing, initialize routes with Angular imports
+        RouterModule.forRoot(routes)
+        
         //HttpModule,
         //ProductModule, 
         //CartModule,

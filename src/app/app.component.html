@@ -10,12 +10,15 @@
     -->
 
     <app-header></app-header>
+ 
 
-    <app-cart></app-cart>
+    <!-- step 3: routing , place holder for routed views 
+    
+        router-outlet comes from angular router module
+    -->
 
-    <app-home></app-home>
-    <app-about></app-about>
-    <app-contact></app-contact>
+    <router-outlet>
+    </router-outlet>
 
     <!-- subscribe for child  event
         then calls the handler, event binding

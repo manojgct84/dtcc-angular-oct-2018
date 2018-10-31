@@ -1,7 +1,7 @@
 import { CartItem } from './../models/cart-item';
 import { Injectable } from '@angular/core';
 
-import {Subject} from 'rxjs';
+import {Subject, BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root' // angular 6 feature
@@ -37,9 +37,9 @@ export class CartService {
   }
 
   // Observable, publish the cart items
-  items$: Subject<CartItem[]> = new Subject();
-  amount$: Subject<number> = new Subject();
-  totalItems$: Subject<number> = new Subject();
+  items$: BehaviorSubject<CartItem[]> = new BehaviorSubject(this._items);
+  amount$: BehaviorSubject<number> = new BehaviorSubject(this._amount);
+  totalItems$: BehaviorSubject<number> = new BehaviorSubject(this._totalItems);
 
   constructor() {
     console.log('Cart service created');

@@ -1,3 +1,4 @@
+import { CartModule } from './cart/cart.module';
 import { AppComponent } from './app.component';
 // collection of components, directives, pipes and services
 // reference to other modules
@@ -17,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
         // reference to other module
         BrowserModule,
         SharedModule,
+        CartModule
         //HttpModule,
         //ProductModule, 
         //CartModule,

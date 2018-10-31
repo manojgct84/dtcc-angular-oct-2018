@@ -1,3 +1,7 @@
-<p>
-  cart-summary works!
-</p>
+<h4>Summary</h4>
+
+<!--
+    async pipe subscribe automatically, and unsubscribe
+-->
+<p> Amount {{amount$ | async}} </p>
+<p>Total Items  {{totalItems$ | async}} </p>

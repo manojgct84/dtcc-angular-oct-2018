@@ -1,3 +1,23 @@
-<p>
-  cart-list works!
-</p>
+<h4>Cart List {{ (items$ | async)?.length }}</h4>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Qty</th>
+    <th>Total</th>
+    <th>Delete</th>
+  </tr>
+
+  <tr *ngFor="let item of items$ | async">
+    <td>{{item.name}}</td>
+    <td>{{item.price}}</td>
+    <td>{{item.qty}}</td>
+    <td>{{item.price * item.qty}}</td>
+    <td> <button (click)="removeItem(item.id)">
+          Delete
+        </button> 
+      
+    </td>
+  </tr>
+</table>

@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   title = 'Home';
   today: Date = new Date();
 
+  hl = false;
 
   constructor() { }
 

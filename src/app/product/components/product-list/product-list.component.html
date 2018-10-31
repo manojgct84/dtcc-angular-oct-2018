@@ -1,3 +1,27 @@
-<p>
-  product-list works!
-</p>
+<h2>Product List</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Year</th>
+    <th>Ops</th>
+  </tr>
+
+  <tr *ngFor="let product of products">
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.year}}</td>
+    <td>
+      
+      <button (click)="deleteProduct(product.id)">
+        Del
+      </button>
+
+      <a [routerLink]="['/products', 'edit', product.id]">
+        Edit
+      </a>
+
+    </td>
+  </tr>
+</table>

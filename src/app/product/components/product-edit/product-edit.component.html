@@ -1,3 +1,25 @@
-<p>
-  product-edit works!
-</p>
+<h2>Product Edit - {{product.name}} </h2>
+
+
+<p>Price {{product.price}}</p>
+
+<form>
+  <!-- readable two way binding -->
+  Name <input name="productName" 
+             [(ngModel)]="product.name" />
+
+  <!-- verbose model, does same two way binding -->
+  Price <input name="productPrice"
+               type="number"
+               [ngModel]="product.price"
+               (ngModelChange)="product.price = $event"
+        />
+
+   Brand <select name="brandId" [(ngModel)]="product.brandId"  >
+              <option [value]="brand.id"
+                      *ngFor="let brand of brands$ | async" >
+                      {{brand.name}}
+              </option>
+          </select>
+
+</form>

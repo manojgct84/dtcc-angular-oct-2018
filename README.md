@@ -126,3 +126,29 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+# CORS
+
+http://localhost:4200/products/list
+
+http://localhost:7070/api/products
+
+CORS  - Cross Origin Request Sharing
+    if diff protocol http vs https https://example.com vs http://example.com
+    if ports are different 7070 vs 8888
+    if subdomain,   www.example.com         - example.com
+
+
+    Local Storage
+    Index DB
+    Cookies
+    AJAX
+
+    api.exmaple.com/login {username, password}
+
+    chennai.com
+      POST
+
+
+Same Origin

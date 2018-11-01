@@ -21,7 +21,7 @@ const routes: Routes = [
 
     children: [
       {
-        path: 'list',  // products/list
+        path: '',  // products/list
         component: ProductListComponent
       },
       {

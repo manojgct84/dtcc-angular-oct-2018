@@ -1,3 +1,5 @@
+import { CartItem } from './../../../cart/models/cart-item';
+import { CartService } from './../../../cart/services/cart.service';
 import { Product } from './../../models/product';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -14,7 +16,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   // step 1
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+              private cartService: CartService) { }
 
   // step 2: HTML mounted into view/browser
 
@@ -44,5 +47,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
                          console.log('product deleted');
                          this.fetchProducts();
                        });
+  }
+
+
+  addToCart(product: Product) {
+    const item = new CartItem(product.id, product.name, product.price, 1);
+    this.cartService.addItem(item);
   }
 }

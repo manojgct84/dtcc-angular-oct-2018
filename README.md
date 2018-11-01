@@ -96,6 +96,9 @@ ng g class cart/models/cart-item
 ng g service cart/services/cart
 
 
+ng g service cart/services/checkout
+
+
 
 ```
 

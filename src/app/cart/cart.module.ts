@@ -7,6 +7,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { SharedModule } from '../shared/shared.module';
 
 import {RouterModule, Routes} from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -26,6 +27,8 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
 
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   declarations: [

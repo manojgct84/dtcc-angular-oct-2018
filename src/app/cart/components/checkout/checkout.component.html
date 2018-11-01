@@ -1,3 +1,42 @@
-<p>
-  checkout works!
-</p>
+
+<h1>Checkout Details</h1>
+ 
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <p>
+        <label>Full Name:</label>
+        <input type="text" formControlName="fullName"  >
+    </p>
+
+   
+    <p>
+        <label>State:</label>
+        <select   formControlName="state"  >
+            <option [value]='state.id' *ngFor="let state of states$ | async">{{state.name}}</option>
+        </select>
+    </p>
+
+
+
+    <p>
+        <label>City:</label>
+        <select   formControlName="city"  >
+            <option [value]='city.id' *ngFor="let city of cities$ | async">
+                {{city.name}}</option>
+        </select>
+    </p>
+
+ 
+ <p>
+        <label>Country</label>
+        <input type="text" formControlName="country">
+        IN or India
+    </p>
+
+    {{form.country.errors | json}}
+        
+        
+    <p>
+        <button type="submit" [disabled]="!checkoutForm.valid">Submit</button>
+    </p>
+</form>

@@ -1,8 +1,11 @@
 <h2>Product Home</h2>
 
-<a routerLink="/products/list" 
+<a routerLink="/products" 
   class="button" 
-  routerLinkActive="success" >
+  routerLinkActive="success"
+  
+  [routerLinkActiveOptions]="{exact: true}"
+  >
  List
 </a>
  

@@ -8,7 +8,14 @@
         <input type="text" formControlName="fullName"  >
     </p>
 
-   
+    <pre>
+    {{form.fullName.errors | json}}
+  </pre>
+
+  <p *ngIf="form.fullName.invalid">
+    Invalid name
+  </p>
+
     <p>
         <label>State:</label>
         <select   formControlName="state"  >

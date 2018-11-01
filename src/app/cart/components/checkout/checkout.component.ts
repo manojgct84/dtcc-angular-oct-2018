@@ -1,3 +1,5 @@
+// checkout.component.ts
+
 import { CheckoutService, State, City } from './../../services/checkout.service';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
@@ -14,7 +16,8 @@ import { FormGroup, FormControl,
 import { Observable } from 'rxjs';
 
 
-  function CountryValidator(control: AbstractControl): {
+// return type is an object, key is a string, value is boolean
+function CountryValidator(control: AbstractControl): {
         [key: string]: boolean;
     } {
 
@@ -57,7 +60,9 @@ export class CheckoutComponent implements OnInit {
              private formBuilder: FormBuilder) {
       console.log('checkout component created');
 
-      this.fullNameControl = new FormControl('', Validators.required);
+      this.fullNameControl = new FormControl('', [Validators.required,
+                                                  Validators.minLength(3),
+                                                  Validators.maxLength(50)]);
       this.stateControl = new FormControl('');
       this.cityControl = new FormControl('');
       this.countryControl = new FormControl('', CountryValidator);
@@ -75,6 +80,7 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit() {
     this.states$ = this.checkoutService.getStates();
+
     this.stateControl.valueChanges
     .pipe (filter (value => !!value))
     .subscribe ( (value: any) => {

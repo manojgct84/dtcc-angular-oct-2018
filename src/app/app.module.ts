@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { ProductModule } from './product/product.module';
 import { CartModule } from './cart/cart.module';
 import { AppComponent } from './app.component';
@@ -53,6 +54,7 @@ const routes: Routes = [
 
         ProductModule,
         HttpClientModule,
+        AuthModule,
 
         // step 2: routing, initialize routes with Angular imports
         RouterModule.forRoot(routes)

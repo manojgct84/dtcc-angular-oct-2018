@@ -32,5 +32,21 @@
     Contact
   </a>
 
+
+  <!-- ng4.0 onwards, ngIf else -->
+
+  <a *ngIf="!(authenticated$ | async) else logoutPart" 
+    routerLink="/login" 
+     class="button" 
+     routerLinkActive="success" >
+    Login
+  </a>
+
+  <ng-template #logoutPart>
+    <button (click)="logout()">
+      Logout
+    </button>
+ </ng-template>
+
   <hr />
 </div>

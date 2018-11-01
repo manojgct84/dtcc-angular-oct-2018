@@ -12,6 +12,7 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {FormsModule,
         ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
 //  nested navigation
 const routes: Routes = [
@@ -26,11 +27,13 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: ProductEditComponent
+        component: ProductEditComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'edit/:id', // products/edit/12345
-        component: ProductEditComponent
+        component: ProductEditComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'search',

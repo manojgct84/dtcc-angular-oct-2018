@@ -37,6 +37,17 @@ ng g class product/models/product
 ng g class product/models/brand
 ```
 
+# Auth
+
+```
+ng g module auth
+ng g component auth/components/login
+ng g service auth/services/auth
+ng g guard auth/guards/auth
+ng g service auth/services/interceptor
+```
+
+
 # Application Architecture
 
 src

@@ -1,3 +1,4 @@
+// product.service.ts
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
@@ -35,4 +36,17 @@ export class ProductService {
   deleteProduct(id): Observable<any> {
     return this.http.delete(`${environment.apiEndPoint}/api/products/${id}`);
   }
+
+    saveProduct(product: Product): Observable<Product> {
+      if (product.id) { // update
+        return this.http
+              .put<Product>(`${environment.apiEndPoint}/api/products/${product.id}`,
+                            product);
+      } else { //create
+        return this.http
+        .post<Product>(`${environment.apiEndPoint}/api/products`,
+                      product);
+      }
+    }
+
 }

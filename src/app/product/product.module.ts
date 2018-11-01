@@ -17,7 +17,10 @@ import { AuthGuard } from '../auth/guards/auth.guard';
 //  nested navigation
 const routes: Routes = [
   {
-    path: 'products',
+    // path: 'products',
+
+    path: '', // products prefix coming from app.module lazy loading
+
     component: ProductHomeComponent,
 
     children: [

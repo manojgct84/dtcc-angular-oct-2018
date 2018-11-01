@@ -32,6 +32,12 @@ function CountryValidator(control: AbstractControl): {
     };
 }
 
+interface EmailCtrl {
+  name: string;
+  control: AbstractControl;
+  controlName: string;
+}
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -54,6 +60,8 @@ export class CheckoutComponent implements OnInit {
   states$: Observable<State[]>;
   cities$: Observable<City[]>;
 
+
+  emails: EmailCtrl[] = [];
 
   constructor(private cartService: CartService,
              private checkoutService: CheckoutService,
@@ -86,6 +94,32 @@ export class CheckoutComponent implements OnInit {
     .subscribe ( (value: any) => {
         this.cities$ = this.checkoutService.getCities(value);
     });
+  }
+
+  addEmail() {
+     const id = Math.ceil(Math.random() * 10000);
+     const emailControl = new FormControl('');
+
+     const ctrl: EmailCtrl = {
+       name: 'Email' + id,
+       controlName: 'emailControl' + id,
+       control: emailControl
+     };
+
+     this.emails.push(ctrl);
+
+     this.checkoutForm.addControl(ctrl.controlName, emailControl);
+
+     emailControl.valueChanges
+                 .subscribe ( value => {
+                   console.log('email is ', value);
+                 });
+  }
+
+  removeEmail(email: EmailCtrl) {
+    this.checkoutForm.removeControl(email.controlName);
+    const index = this.emails.findIndex(e => e.name === email.name);
+    this.emails.splice(index, 1);
   }
 
 }

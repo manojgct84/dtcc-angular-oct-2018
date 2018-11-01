@@ -1,6 +1,9 @@
 
 <h1>Checkout Details</h1>
  
+<button (click)="addEmail()">
+  Add Email
+</button>
 
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
     <p>
@@ -12,7 +15,7 @@
     {{form.fullName.errors | json}}
   </pre>
 
-  <p *ngIf="form.fullName.invalid">
+  <p *ngIf="form.fullName.dirty && form.fullName.invalid">
     Invalid name
   </p>
 
@@ -36,12 +39,20 @@
  
  <p>
         <label>Country</label>
-        <input type="text" formControlName="country">
+        <input  type="text" formControlName="country">
         IN or India
     </p>
 
     {{form.country.errors | json}}
         
+
+    <div *ngFor="let email of emails">
+      <label>{{email.name}}</label>
+      <input  type="text" [formControlName]="email.controlName">
+      <button (click)="removeEmail(email)">
+        X
+      </button>
+    </div>
         
     <p>
         <button type="submit" [disabled]="!checkoutForm.valid">Submit</button>

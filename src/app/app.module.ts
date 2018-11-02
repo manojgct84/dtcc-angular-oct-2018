@@ -54,7 +54,7 @@ const routes: Routes = [
     imports: [
         // reference to other module
         BrowserModule,
-        SharedModule,
+        SharedModule.forRoot(), // shared module + data service
         CartModule,
 
        // ProductModule,

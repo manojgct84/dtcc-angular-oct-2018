@@ -1,3 +1,4 @@
+import { DataService } from './shared/services/data.service';
 import { Address } from './shared/models/address';
 import {Component} from '@angular/core';
 
@@ -13,6 +14,10 @@ import {Component} from '@angular/core';
     ]
 })
 export class AppComponent { // Component
+
+    constructor(private dataService: DataService) {
+        console.log('app component created');
+    }
 
     // Models, binded to View
     appTitle: string = 'Product App';

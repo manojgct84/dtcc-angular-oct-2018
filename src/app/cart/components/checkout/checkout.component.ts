@@ -45,7 +45,7 @@ interface EmailCtrl {
 
   providers: [
     // CheckoutService instance is exclusive to checkout component
-    CheckoutService,
+     CheckoutService,
   ]
 })
 export class CheckoutComponent implements OnInit {
@@ -112,7 +112,7 @@ export class CheckoutComponent implements OnInit {
 
      emailControl.valueChanges
                  .subscribe ( value => {
-                   console.log('email is ', value);
+                   console.log('email is', value);
                  });
   }
 
@@ -120,6 +120,10 @@ export class CheckoutComponent implements OnInit {
     this.checkoutForm.removeControl(email.controlName);
     const index = this.emails.findIndex(e => e.name === email.name);
     this.emails.splice(index, 1);
+  }
+
+  placeOrder() {
+
   }
 
 }

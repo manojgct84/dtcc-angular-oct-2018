@@ -23,7 +23,9 @@ export class State {
 })
 export class CheckoutService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    console.log('check out service created');
+   }
 
   getStates(): Observable<State[]> {
      return this.http.get<State[]>(`${environment.apiEndPoint}/api/states`);

@@ -12,7 +12,9 @@ import { Brand } from '../models/brand';
 })
 export class ProductService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    console.log('product service created');
+  }
 
   getProducts(): Observable<Product[]> {
      return this.http.get<Product[]>(`${environment.apiEndPoint}/api/products`);

@@ -52,7 +52,7 @@ const routes: Routes = [
 
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
+    SharedModule.forChild(), // service excluded
     RouterModule.forChild(routes)
   ],
   declarations: [ProductHomeComponent, ProductListComponent, ProductEditComponent, ProductSearchComponent]

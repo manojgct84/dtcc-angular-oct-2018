@@ -1,3 +1,4 @@
+import { DataService } from './../../../shared/services/data.service';
 import { CartItem } from './../../../cart/models/cart-item';
 import { CartService } from './../../../cart/services/cart.service';
 import { Product } from './../../models/product';
@@ -16,8 +17,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   // step 1
-  constructor(private productService: ProductService,
-              private cartService: CartService) { }
+  constructor(public productService: ProductService,
+    public cartService: CartService,
+    public dataService: DataService) { }
 
   // step 2: HTML mounted into view/browser
 

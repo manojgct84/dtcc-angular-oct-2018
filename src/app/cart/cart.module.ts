@@ -1,3 +1,4 @@
+import { CheckoutService } from './services/checkout.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './components/cart/cart.component';
@@ -39,6 +40,11 @@ const routes: Routes = [
 
   exports: [
    // CartComponent
+  ],
+
+  // ng 5
+  providers: [
+    CheckoutService
   ]
 })
 export class CartModule { }

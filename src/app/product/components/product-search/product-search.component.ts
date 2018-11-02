@@ -42,9 +42,9 @@ export class ProductSearchComponent implements OnInit {
         .pipe(map(value => value.trim()))
         .pipe(filter(value => !!value)) // !! null, undefined, empty string
 
-        .pipe(filter(value => value.length >= 2))
+         .pipe(filter(value => value.length >= 2))
 
-        .pipe(debounceTime(400)) // wait 400 milli-seconds before calling subscribe
+         .pipe(debounceTime(400)) // wait 400 milli-seconds before calling subscribe
  
         .subscribe (value => {
           console.log(`**${value}**`);

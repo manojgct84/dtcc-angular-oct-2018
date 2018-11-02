@@ -1,5 +1,5 @@
 import { AuthModule } from './auth/auth.module';
-// import { ProductModule } from './product/product.module';
+import { ProductModule } from './product/product.module';
 import { CartModule } from './cart/cart.module';
 import { AppComponent } from './app.component';
 // collection of components, directives, pipes and services
@@ -38,10 +38,10 @@ const routes: Routes = [
         component: AboutComponent
     },
 
-    {
-        path: 'products',
-        loadChildren: './product/product.module#ProductModule'
-    },
+    // {
+    //     path: 'products',
+    //     loadChildren: './product/product.module#ProductModule'
+    // },
 
     {
         path: '**', //not found
@@ -57,7 +57,7 @@ const routes: Routes = [
         SharedModule.forRoot(), // shared module + data service
         CartModule,
 
-       // ProductModule,
+       ProductModule,
         HttpClientModule,
         AuthModule,
 

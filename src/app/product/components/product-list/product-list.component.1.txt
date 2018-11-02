@@ -4,18 +4,17 @@ import { CartService } from './../../../cart/services/cart.service';
 import { Product } from './../../models/product';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription, Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
-  products$: Observable<Product[]>;
+export class ProductListComponent implements OnInit, OnDestroy {
+  products: Product[] = [];
+  subscription: Subscription;
 
-  message: string;
-   
   // step 1
   constructor(public productService: ProductService,
     public cartService: CartService,
@@ -25,29 +24,30 @@ export class ProductListComponent implements OnInit {
 
   // step 4: component initialized
   fetchProducts() {
-    this.products$ = this.productService
-                            .getProducts();
+    this.subscription = this.productService
+                            .getProducts()
+                            .subscribe (products => {
+                              console.log('got products');
+                              this.products = products;
+                            });
   }
 
   ngOnInit() {
     this.fetchProducts();
   }
 
+  ngOnDestroy() {
+    console.log('product list on destroy');
+    // cancel the pending calls
+    this.subscription.unsubscribe();
+  }
+
   deleteProduct(id: number) {
-    this.productService.deleteProduct(1000)
+    this.productService.deleteProduct(id)
                        .subscribe ( () => {
                          console.log('product deleted');
-                         this.message = 'product deleted';
                          this.fetchProducts();
-                       },
-                       
-                       error => {
-                         console.log(error);
-                         console.log('error in deleting product');
-                         this.message = `error in deleting product ${error.status} ${error.statusText}  `;
-
-                       }
-                       );
+                       });
   }
 
 

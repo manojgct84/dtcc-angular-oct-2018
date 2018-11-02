@@ -1,5 +1,7 @@
 <h2>Product List</h2>
 
+<p>{{message}}</p>
+
 <table>
   <tr>
     <th>Name</th>
@@ -8,7 +10,7 @@
     <th>Ops</th>
   </tr>
 
-  <tr *ngFor="let product of products">
+  <tr *ngFor="let product of products$ | async">
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.year}}</td>

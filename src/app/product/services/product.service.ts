@@ -44,7 +44,7 @@ export class ProductService {
         return this.http
               .put<Product>(`${environment.apiEndPoint}/api/products/${product.id}`,
                             product);
-      } else { //create
+      } else { // create
         return this.http
         .post<Product>(`${environment.apiEndPoint}/api/products`,
                       product);

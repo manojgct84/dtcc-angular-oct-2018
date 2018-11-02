@@ -1,3 +1,4 @@
+import { SaveAlertGuard } from './../shared/guards/save-alert.guard';
 // product.module.ts
 
 import { SharedModule } from './../shared/shared.module';
@@ -17,9 +18,9 @@ import { AuthGuard } from '../auth/guards/auth.guard';
 //  nested navigation
 const routes: Routes = [
   {
-    // path: 'products',
+    path: 'products',
 
-    path: '', // products prefix coming from app.module lazy loading
+    //path: '', // products prefix coming from app.module lazy loading
 
     component: ProductHomeComponent,
 
@@ -31,12 +32,14 @@ const routes: Routes = [
       {
         path: 'create',
         component: ProductEditComponent,
-        canActivate: [AuthGuard]
+        canDeactivate: [SaveAlertGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'edit/:id', // products/edit/12345
         component: ProductEditComponent,
-        canActivate: [AuthGuard]
+        canDeactivate: [SaveAlertGuard]
+       // canActivate: [AuthGuard]
       },
       {
         path: 'search',

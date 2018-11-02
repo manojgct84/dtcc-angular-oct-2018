@@ -3,13 +3,34 @@
 
 <p>Price {{product.price}}</p>
 
-<form (ngSubmit)="saveProduct()">
+<form (ngSubmit)="saveProduct()" #productForm="ngForm">
   <!-- readable two way binding -->
-  Name <input name="productName" 
-             [(ngModel)]="product.name" />
+  Name <input name="name" 
+             [(ngModel)]="product.name" 
+
+             required
+             minlength="2"
+
+             #pName
+             #productName="ngModel"
+             
+             />
+
+
+  <p>P Name {{pName.value}}</p>
+
+  <p *ngIf="productName.invalid">
+          Product Name is invalid
+  </p>
+
+  <pre>
+          {{productName.errors | json}}
+  </pre>
+
+  <p> Null/undefiend check {{productName.errors?.required}}</p>
 
   <!-- verbose model, does same two way binding -->
-  Price <input name="productPrice"
+  Price <input name="price"
                type="number"
                [ngModel]="product.price"
                (ngModelChange)="product.price = $event"
@@ -22,6 +43,11 @@
               </option>
           </select>
 
-          <button type="submit">Save</button>
+          <button type="submit"  [disabled]="productForm.invalid">Save</button>
+
+
+          <button type="button" (click)="productForm.resetForm(this.productClone)">
+                  Reset
+          </button>
 
 </form>

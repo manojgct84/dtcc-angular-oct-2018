@@ -25,6 +25,14 @@ export class AuthGuard implements CanActivate {
       console.log('AuthGuard called ', state.url);
       console.log('params ', next.params);
 
+      console.log('data ', next.data);
+      
+
+      if (state.url.indexOf("products") && next.params['id'] == 19) {
+        alert("You cannot access this page")
+        return false;
+      }
+
       if (this.authService.authenticated) {
         return true;
       }

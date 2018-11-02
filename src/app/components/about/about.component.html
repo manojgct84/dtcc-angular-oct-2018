@@ -1,5 +1,19 @@
 <h2>About Page</h2>
 
+<app-like [(likes)]="aboutLikes">
+
+  <!-- content view -->
+  <h2>About page likes</h2>
+
+</app-like>
+
+
+<app-like [likes]="aboutLikes"
+          (likesChange)="aboutLikes = $event"
+>
+  
+</app-like>
+
 <!-- # - template reference variable 
          to get access to DOM element of this component only [scopped]
 

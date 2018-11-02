@@ -13,6 +13,8 @@ import { Component,
 })
 export class AboutComponent implements OnInit {
 
+  aboutLikes: number = 0;
+
   @ViewChild('p1')
   p1Element: ElementRef; // wrapper for native element ie DOM
 

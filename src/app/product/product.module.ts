@@ -18,9 +18,9 @@ import { AuthGuard } from '../auth/guards/auth.guard';
 //  nested navigation
 const routes: Routes = [
   {
-    path: 'products',
+   // path: 'products',
 
-    //path: '', // products prefix coming from app.module lazy loading
+    path: '', // products prefix coming from app.module lazy loading
 
     component: ProductHomeComponent,
 
@@ -32,14 +32,15 @@ const routes: Routes = [
       {
         path: 'create',
         component: ProductEditComponent,
-        canDeactivate: [SaveAlertGuard]
-        //canActivate: [AuthGuard]
+        canDeactivate: [SaveAlertGuard],
+        canActivate: [AuthGuard],
+        data: ['admin']
       },
       {
         path: 'edit/:id', // products/edit/12345
         component: ProductEditComponent,
-        canDeactivate: [SaveAlertGuard]
-       // canActivate: [AuthGuard]
+        canDeactivate: [SaveAlertGuard],
+        canActivate: [AuthGuard]
       },
       {
         path: 'search',

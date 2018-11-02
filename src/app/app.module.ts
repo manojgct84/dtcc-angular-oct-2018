@@ -1,6 +1,6 @@
 import { AuthModule } from './auth/auth.module';
-import { ProductModule } from './product/product.module';
-import { CartModule } from './cart/cart.module';
+// import { ProductModule } from './product/product.module';
+//import { CartModule } from './cart/cart.module';
 import { AppComponent } from './app.component';
 // collection of components, directives, pipes and services
 // reference to other modules
@@ -38,10 +38,21 @@ const routes: Routes = [
         component: AboutComponent
     },
 
-    // {
-    //     path: 'products',
-    //     loadChildren: './product/product.module#ProductModule'
-    // },
+    {
+        path: 'products',
+        loadChildren: './product/product.module#ProductModule'
+    },
+
+    {
+        path: 'cart',
+        loadChildren: './cart/cart.module#CartModule'
+    },
+
+
+    {
+        path: 'checkout',
+        loadChildren: './cart/cart.module#CartModule'
+    },
 
     {
         path: '**', //not found
@@ -55,9 +66,9 @@ const routes: Routes = [
         // reference to other module
         BrowserModule,
         SharedModule.forRoot(), // shared module + data service
-        CartModule,
+   //     CartModule,
 
-       ProductModule,
+      // ProductModule,
         HttpClientModule,
         AuthModule,
 

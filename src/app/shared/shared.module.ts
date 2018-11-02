@@ -7,6 +7,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
 import { DataComponent } from './services/data/data.component';
+import { LikeComponent } from './component/like/like.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { DataComponent } from './services/data/data.component';
     FilterPipe,
     SortPipe,
     HighlightDirective,
-    DataComponent
+    DataComponent,
+    LikeComponent
   ],
 
   // exports makes component/pipes/directive to be public, to be used in other module
@@ -29,7 +31,8 @@ import { DataComponent } from './services/data/data.component';
     PowerPipe,
     FilterPipe,
     SortPipe,
-    HighlightDirective
+    HighlightDirective,
+    LikeComponent
   ],
 
   providers: [

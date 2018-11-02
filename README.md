@@ -1,3 +1,15 @@
+# Clone repo
+
+```
+git clone https://github.com/nodesense/dtcc-angular-oct-2018 product-app
+
+cd product-app
+
+npm install
+
+ng serve
+```
+
 # Get Started
 
 ```
